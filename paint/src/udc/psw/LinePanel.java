@@ -61,7 +61,7 @@ public class LinePanel extends JPanel implements MouseMotionListener, MouseListe
 				g.drawLine(x, y, x2, y2);
 				break;
 			case 3:
-				g.fillOval(x - 2, y - 2, 5, 5);
+				g.drawArc(x, y, x2, y2, x, 360);
 				break;
 		}
 	}
@@ -72,6 +72,10 @@ public class LinePanel extends JPanel implements MouseMotionListener, MouseListe
 			case 1:
 				break;
 			case 2:
+				x = e.getX();
+				y = e.getY();
+				break;
+			case 3:
 				x = e.getX();
 				y = e.getY();
 				break;
@@ -100,6 +104,10 @@ public class LinePanel extends JPanel implements MouseMotionListener, MouseListe
 			case 1:
 				break;
 			case 2:
+				x2 = e.getX();
+				y2 = e.getY();
+				break;
+			case 3:
 				x2 = e.getX();
 				y2 = e.getY();
 				break;
