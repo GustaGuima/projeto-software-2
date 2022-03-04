@@ -1,4 +1,4 @@
-package paint.src.udc.psw;
+package udc.psw;
 
 import java.awt.BorderLayout;
 

@@ -1,4 +1,4 @@
-package paint.src.udc.psw;
+package udc.psw;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -12,18 +12,11 @@ import javax.swing.JPanel;
 public class LinePanel extends JPanel implements MouseMotionListener, MouseListener {
 
 	private JLabel status;
-	private int x = 0;
-	private int y = 0;
-	private int x2 = 0;
-	private int y2 = 0;
-	private int xp = 0;
-	private int yp = 0;
+	public int xp, yp, x, y, x1, x2, y1, y2, r, w, h, xDist, yDist;
+	public static boolean flag = false, pressFlag = false;
 	private int escolheDesenho;
 	private int n = 10000;
 	private int[] vet_guarda_linhas = new int[n];
-	private boolean desenhar = false;
-	private boolean desenhar_ponto = false;
-	private boolean desenhar_linha = false;
 
 	public LinePanel(JLabel status) {
 		this.status = status;
@@ -43,7 +36,6 @@ public class LinePanel extends JPanel implements MouseMotionListener, MouseListe
 			case 1:
 				xp = e.getX();
 				yp = e.getY();
-
 				break;
 		}
 		repaint();
@@ -61,7 +53,8 @@ public class LinePanel extends JPanel implements MouseMotionListener, MouseListe
 				g.drawLine(x, y, x2, y2);
 				break;
 			case 3:
-				g.drawArc(x, y, x2, y2, x, 360);
+				super.paintComponent(g);
+				g.drawOval(x1, y1, x2 - x1, y2 - y1);
 				break;
 		}
 	}
@@ -76,16 +69,26 @@ public class LinePanel extends JPanel implements MouseMotionListener, MouseListe
 				y = e.getY();
 				break;
 			case 3:
-				x = e.getX();
-				y = e.getY();
+				x1 = y1 = 0;
+				r = x2 = y2 = 0;
+				x1 = e.getX();
+				y1 = e.getY();
 				break;
 		}
+		repaint();
 
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-
+		switch (escolheDesenho) {
+			case 3:
+				w = x2 - x;
+				h = y2 - y;
+				r = (int) Math.sqrt((x2 - x) * (x2 - x) + (y2 - y) * (y2 - y));
+				break;
+		}
+		repaint();
 	}
 
 	@Override
