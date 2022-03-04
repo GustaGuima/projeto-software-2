@@ -1,4 +1,4 @@
-package udc.psw;
+
 
 import java.awt.Color;
 import java.awt.Graphics;
