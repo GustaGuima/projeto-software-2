@@ -2,7 +2,6 @@ package formas;
 
 import manipuladores.ManipuladorForma;
 import manipuladores.ManipuladorLinha;
-import utils.FormaGeometrica;
 
 public class Linha implements FormaGeometrica{
     public static final byte ID = 2;

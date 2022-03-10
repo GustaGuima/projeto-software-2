@@ -1,6 +1,5 @@
 package formas;
 
-import utils.FormaGeometrica;
 import manipuladores.ManipuladorForma;
 import manipuladores.ManipuladorPonto;
 
