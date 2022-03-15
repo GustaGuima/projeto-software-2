@@ -6,17 +6,17 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Launch AppLinhas",
+            "name": "Launch Principal",
             "request": "launch",
-            "mainClass": "Linhas.src.udc.psw.AppLinhas",
-            "projectName": "pj-2_3c06214"
+            "mainClass": "view.Principal",
+            "projectName": "Linhas"
         },
         {
             "type": "java",
-            "name": "Launch JanelaMouse",
+            "name": "Launch Principal",
             "request": "launch",
-            "mainClass": "ProjetoDois.src.udc.projetosDois.JanelaMouse",
-            "projectName": "pj-2_3c06214"
+            "mainClass": "pacote.Principal",
+            "projectName": "Linhas"
         }
     ]
 }
