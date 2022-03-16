@@ -12,6 +12,7 @@ import interfaces.Panel;
 import interfaces.Shape;
 import domain.Line;
 import domain.Point;
+import domain.Rectangle;
 import domain.Square;
 
 public class DrawPanel extends JPanel implements MouseListener, MouseMotionListener, Panel {
@@ -49,6 +50,10 @@ public class DrawPanel extends JPanel implements MouseListener, MouseMotionListe
 				Square s = (Square) newShape;
 				s.setA(new Point(event.getPoint().x, event.getPoint().y));
 				s.setB(new Point(event.getPoint().x, event.getPoint().y));
+			} else if (newShape.getClass().equals(Rectangle.class)) {
+				Rectangle r = (Rectangle) newShape;
+				r.setA(new Point(event.getPoint().x, event.getPoint().y));
+				r.setB(new Point(event.getPoint().x, event.getPoint().y));
 			}
 		}
 	}
@@ -79,6 +84,10 @@ public class DrawPanel extends JPanel implements MouseListener, MouseMotionListe
 				s.setB(new Point(event.getPoint().x, event.getPoint().y));
 
 				reload();
+			} else if (newShape.getClass().equals(Rectangle.class)) {
+				Rectangle r = (Rectangle) newShape;
+				r.setA(new Point(event.getPoint().x, event.getPoint().y));
+				r.setB(new Point(event.getPoint().x, event.getPoint().y));
 			}
 		}
 
@@ -99,6 +108,9 @@ public class DrawPanel extends JPanel implements MouseListener, MouseMotionListe
 			} else if (newShape.getClass().equals(Square.class)) {
 				Square s = (Square) newShape;
 				s.setB(new Point(event.getPoint().x, event.getPoint().y));
+			} else if (newShape.getClass().equals(Rectangle.class)) {
+				Rectangle r = (Rectangle) newShape;
+				r.setB(new Point(event.getPoint().x, event.getPoint().y));
 			}
 		}
 
@@ -131,6 +143,11 @@ public class DrawPanel extends JPanel implements MouseListener, MouseMotionListe
 			} else if (newShape.getClass().equals(Square.class)) {
 				Square s = (Square) newShape;
 				s.setB(new Point(event.getPoint().x, event.getPoint().y));
+
+				reload();
+			} else if (newShape.getClass().equals(Rectangle.class)) {
+				Rectangle r = (Rectangle) newShape;
+				r.setB(new Point(event.getPoint().x, event.getPoint().y));
 
 				reload();
 			}

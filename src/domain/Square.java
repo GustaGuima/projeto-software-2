@@ -43,18 +43,6 @@ public class Square implements GeometricShape {
 		return NOME+" ("+a.getX()+", "+a.getY()+"),("+b.getX()+", "+b.getY()+");";
 	}
 
-	@Override
-	public String toTextLine() {
-		return NOME+" "+a.getX()+" "+a.getY()+" "+b.getX()+" "+b.getY();
-	}
-
-    @Override
-    public String toTextLineBD() {
-		return a.getX()+","+a.getY()+" | "+b.getX()+","+b.getY();
-
-	}
-
-
     @Override
 	public String toString() {		
     	return NOME;	

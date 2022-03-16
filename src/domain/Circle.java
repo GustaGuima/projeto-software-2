@@ -52,18 +52,8 @@ public class Circle implements GeometricShape{
 	}
 
 	@Override
-    public String toTextLineBD() {
-		return a.getX()+","+a.getY()+" | "+b.getX()+","+b.getY();
-    }
-
-	@Override
 	public Shape getController() {
 		return new CircleController(this);
-	}
-
-	@Override
-	public String toTextLine() {
-		return NOME+" "+a.getX()+" "+a.getY()+" "+b.getX()+" "+b.getY();
 	}
 	
 	@Override

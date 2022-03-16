@@ -40,17 +40,6 @@ public class Point implements GeometricShape{
 	public void setY(int y) {
 		this.y = y;
 	}
-	
-	@Override
-	public String toTextLine() {
-		return NOME + " " + x + " " + y;
-	}
-	
-	@Override
-	public String toTextLineBD() {
-        return x+","+y;
-
-    }
 
 	@Override
 	public String toString() {

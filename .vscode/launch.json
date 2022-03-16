@@ -9,21 +9,7 @@
             "name": "Launch Main",
             "request": "launch",
             "mainClass": "main.Main",
-            "projectName": "Linhas"
-        },
-        {
-            "type": "java",
-            "name": "Launch Principal",
-            "request": "launch",
-            "mainClass": "view.Principal",
-            "projectName": "Linhas"
-        },
-        {
-            "type": "java",
-            "name": "Launch Principal",
-            "request": "launch",
-            "mainClass": "pacote.Principal",
-            "projectName": "Linhas"
+            "projectName": "Paint"
         }
     ]
 }

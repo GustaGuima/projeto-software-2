@@ -45,18 +45,6 @@ public class Line implements GeometricShape{
 	public String toString() {
 		return NOME;
 	}
-
-	
-	@Override
-	public String toTextLine() {
-		return NOME+" "+ponto1.getX()+" "+ponto1.getY()+" "+ponto2.getX()+" "+ponto2.getY();
-	}
-	
-	@Override
-    public String toTextLineBD() {
-		return ponto1.getX()+","+ponto1.getY()+" | "+ponto2.getX()+","+ponto2.getY();
-
-	}
 	
 	public String toStringArq(){
 		return String.format("%d %d %d %d", ponto1.x, ponto1.y, ponto2.x, ponto2.y);
