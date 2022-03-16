@@ -12,6 +12,7 @@ import interfaces.Panel;
 import interfaces.Shape;
 import domain.Line;
 import domain.Point;
+import domain.Square;
 
 public class DrawPanel extends JPanel implements MouseListener, MouseMotionListener, Panel {
 	private GeometricShape newShape;
@@ -27,7 +28,6 @@ public class DrawPanel extends JPanel implements MouseListener, MouseMotionListe
 		GeometricShape shape = newShape;
 		if (newShape != null) {
 			shape.getController().paint(g);
-			reload();
 		}
 	}
 
@@ -45,6 +45,10 @@ public class DrawPanel extends JPanel implements MouseListener, MouseMotionListe
 				Circle c = (Circle) newShape;
 				c.setA(new Point(event.getPoint().x, event.getPoint().y));
 				c.setB(new Point(event.getPoint().x, event.getPoint().y));
+			} else if (newShape.getClass().equals(Square.class)) {
+				Square s = (Square) newShape;
+				s.setA(new Point(event.getPoint().x, event.getPoint().y));
+				s.setB(new Point(event.getPoint().x, event.getPoint().y));
 			}
 		}
 	}
@@ -69,6 +73,12 @@ public class DrawPanel extends JPanel implements MouseListener, MouseMotionListe
 				c.setB(new Point(event.getPoint().x, event.getPoint().y));
 
 				reload();
+			} else if (newShape.getClass().equals(Square.class)) {
+				Square s = (Square) newShape;
+				s.setA(new Point(event.getPoint().x, event.getPoint().y));
+				s.setB(new Point(event.getPoint().x, event.getPoint().y));
+
+				reload();
 			}
 		}
 
@@ -86,6 +96,9 @@ public class DrawPanel extends JPanel implements MouseListener, MouseMotionListe
 			} else if (newShape.getClass().equals(Circle.class)) {
 				Circle c = (Circle) newShape;
 				c.setB(new Point(event.getPoint().x, event.getPoint().y));
+			} else if (newShape.getClass().equals(Square.class)) {
+				Square s = (Square) newShape;
+				s.setB(new Point(event.getPoint().x, event.getPoint().y));
 			}
 		}
 
@@ -113,6 +126,11 @@ public class DrawPanel extends JPanel implements MouseListener, MouseMotionListe
 			} else if (newShape.getClass().equals(Circle.class)) {
 				Circle c = (Circle) newShape;
 				c.setB(new Point(event.getPoint().x, event.getPoint().y));
+
+				reload();
+			} else if (newShape.getClass().equals(Square.class)) {
+				Square s = (Square) newShape;
+				s.setB(new Point(event.getPoint().x, event.getPoint().y));
 
 				reload();
 			}

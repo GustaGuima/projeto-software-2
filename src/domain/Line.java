@@ -6,7 +6,7 @@ import controllers.LineController;
 
 public class Line implements GeometricShape{
     public static final byte ID = 2;
-	public static final String NOME = "Linha";
+	public static final String NOME = "Line";
 	Point ponto1;
 	Point ponto2;
 	

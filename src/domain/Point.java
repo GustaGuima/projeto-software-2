@@ -5,7 +5,7 @@ import interfaces.Shape;
 import controllers.PointController;
 
 public class Point implements GeometricShape{
-    public static final String NOME = "Ponto";
+    public static final String NOME = "Point";
 	public static final byte ID = 1;
 	public int x;
 	public int y;

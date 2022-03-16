@@ -5,7 +5,7 @@ import interfaces.GeometricShape;
 import interfaces.Shape;
 
 public class Circle implements GeometricShape{
-    public static final String NOME = "Circulo";
+    public static final String NOME = "Circle";
 	public static final byte ID = 5;
 	private Point a;
 	private Point b;
