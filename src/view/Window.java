@@ -33,6 +33,11 @@ public class Window extends JFrame {
 		paineldesenhar = new DrawPanel(documento);
 		paineldesenhar.setBackground(Color.WHITE);
 		JMenuBar menuBar = new JMenuBar();
+		JMenu fileMenu = new JMenu("File");
+		JMenuItem newFile = new JMenuItem("New");
+	    JMenuItem openFile = new JMenuItem("Open");
+	    JMenuItem saveFile = new JMenuItem("Save");
+	    JMenuItem exit = new JMenuItem("Exit");  
 		JMenu figureMenu = new JMenu("Figure");
 		JMenuItem figurePoint = new JMenuItem("Point");
 		JMenuItem figureLine = new JMenuItem("Line");
@@ -42,12 +47,19 @@ public class Window extends JFrame {
 
 		this.setJMenuBar(menuBar);
 		this.add(paineldesenhar, BorderLayout.CENTER);
+
 		menuBar.add(figureMenu);
 		figureMenu.add(figurePoint);
 		figureMenu.add(figureLine);
 		figureMenu.add(figureCircle);
 		figureMenu.add(figureSquare);
 		figureMenu.add(figureRectangle);
+
+		menuBar.add(fileMenu);
+		fileMenu.add(newFile);
+		fileMenu.add(openFile);
+		fileMenu.add(saveFile);
+		fileMenu.add(exit);
 
 		figurePoint.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -87,6 +99,42 @@ public class Window extends JFrame {
 				}
 			}
 		});
+
+		saveFile.addActionListener(new ActionListener() {	
+			public void actionPerformed(ActionEvent e) {	
+				if(e.getSource() == saveFile) {	
+					documento.salvarFormas();
+					paineldesenhar.repaint();
+			 }
+			}
+		  });	
+        
+		
+        newFile.addActionListener(new ActionListener() {	
+			public void actionPerformed(ActionEvent e) {	
+				if(e.getSource() == newFile) {
+					documento.novoArquivo();
+					paineldesenhar.repaint();
+		      }	
+			}
+		  });	
+        
+       openFile.addActionListener(new ActionListener() {	
+			public void actionPerformed(ActionEvent e) {	
+				if(e.getSource() == openFile) {
+					documento.lerFormas();
+					paineldesenhar.repaint();
+				}
+			}
+		  });	
+        
+        exit.addActionListener(new ActionListener() {	
+			public void actionPerformed(ActionEvent e) {	
+				if(e.getSource() == exit) {
+					System.exit(0);
+		      }	
+			}
+		  });
 
 	}
 

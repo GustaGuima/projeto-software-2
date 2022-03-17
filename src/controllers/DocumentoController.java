@@ -10,7 +10,6 @@ import javax.swing.JOptionPane;
 import interfaces.GeometricShape;
 import interfaces.Lista;
 import interfaces.Panel;
-import controllers.ListaController;
 
 import arquivos.*;
 
@@ -70,7 +69,6 @@ public class DocumentoController {
 	   
 	   public void salvarFormas(){
 		   int option = tipoArquivo();
-			
 		    if(option == 0) {
 				try {
 					   if(this.file == null) {
@@ -123,12 +121,11 @@ public class DocumentoController {
 	   
 	   public void lerFormas(){
 		   int option = tipoArquivo();
-				//Arquivo Texto
 			    if(option == 0) {
 				String path = JOptionPane.showInputDialog(null,"Nome do Arquivo de Texto que deseja abrir?", JOptionPane.INFORMATION_MESSAGE);
 				this.file = new File(System.getProperty("user.dir") + "/" +  path + ".txt");
 				if(!this.file.exists()) {
-					JOptionPane.showMessageDialog(null, "Arquivo n�o existe!");
+					JOptionPane.showMessageDialog(null, "Arquivo nao existe!");
 					this.file = null;
 				} else {
 				lista.limparLista();
@@ -136,25 +133,23 @@ public class DocumentoController {
 				}		
 		    }
 		
-			 //Arquivo Serializable
 		    if(option == 1) {
 		    	String path = JOptionPane.showInputDialog(null,"Nome do Arquivo Serializado que deseja abrir?", JOptionPane.INFORMATION_MESSAGE);
 				this.file = new File(System.getProperty("user.dir") + "/" +  path + ".ser");
 				if(!this.file.exists()) {
-					JOptionPane.showMessageDialog(null, "Arquivo n�o existe!");
+					JOptionPane.showMessageDialog(null, "Arquivo nao existe!");
 					this.file = null;
 				} else if(this.file.exists()) {
 					lista.limparLista();
 					Deserialize.deserialize(this.file, this);
 				}
 		    }
-		    
-		    //Arquivo Bin�rio
+		
 		    if(option == 2) {
 		    	String path = JOptionPane.showInputDialog(null,"Nome do Arquivo Binario que deseja abrir?", JOptionPane.INFORMATION_MESSAGE);
 				this.file = new File(System.getProperty("user.dir") + "/" +  path + ".txt");
 					if(!this.file.exists()) {
-						JOptionPane.showMessageDialog(null, "Arquivo n�o existe!");
+						JOptionPane.showMessageDialog(null, "Arquivo nao existe!");
 						this.file = null;
 					} else {
 					lista.limparLista();
@@ -163,9 +158,8 @@ public class DocumentoController {
 					}		
 		    }
 		    
-		    //Exit
 		    if(option == -1 || option == 3) {
-		    	JOptionPane.showMessageDialog(null, "N�o foi poss�vel ABRIR! um novo Arquivo");
+		    	JOptionPane.showMessageDialog(null, "Nao foi possivel ABRIR! um novo Arquivo");
 		    }
 	   }
 	   
@@ -201,7 +195,7 @@ public class DocumentoController {
 		    //Arquivo Bin�rio
 		    if(option == 2) {
 		    	try {
-					String path = JOptionPane.showInputDialog(null,"Nome do Arquivo Bin�rio que deseja criar?", JOptionPane.INFORMATION_MESSAGE);
+					String path = JOptionPane.showInputDialog(null,"Nome do Arquivo Binario que deseja criar?", JOptionPane.INFORMATION_MESSAGE);
 					File newFile = new File(System.getProperty("user.dir") + "/" +  path + ".txt");
 					newFile.createNewFile();
 					lista.limparLista();
@@ -213,7 +207,7 @@ public class DocumentoController {
 		    
 		    //Exit
 		    if(option == -1 || option == 3) {
-		    	JOptionPane.showMessageDialog(null, "N�o foi poss�vel CRIAR! um novo Arquivo");
+		    	JOptionPane.showMessageDialog(null, "Nao foi possivel CRIAR! um novo Arquivo");
 		    }
 	   }
 	   

@@ -17,6 +17,12 @@ public final class Main {
 			Main.principal = new Main();
 		return Main.principal;
 	}
+
+	public DocumentoController getDocumentoAtivo(){
+		if(this.documento == null)
+			this.documento = new DocumentoController();
+		return documento;
+	}
 	
 	
 	public static void main(String[] args) {
