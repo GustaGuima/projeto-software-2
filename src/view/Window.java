@@ -16,11 +16,13 @@ import domain.Point;
 import domain.Rectangle;
 import domain.Square;
 
+import controllers.DocumentoController;
+
 public class Window extends JFrame {
 
 	DrawPanel paineldesenhar;
 
-	public Window() {
+	public Window(DocumentoController documento) {
 
 		super("Paint");
 
@@ -28,7 +30,7 @@ public class Window extends JFrame {
 		this.setLocation(450, 300);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		paineldesenhar = new DrawPanel();
+		paineldesenhar = new DrawPanel(documento);
 		paineldesenhar.setBackground(Color.WHITE);
 		JMenuBar menuBar = new JMenuBar();
 		JMenu figureMenu = new JMenu("Figure");

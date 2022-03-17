@@ -6,6 +6,7 @@ import java.awt.event.MouseMotionListener;
 import java.awt.Graphics;
 import javax.swing.JPanel;
 
+import controllers.DocumentoController;
 import domain.Circle;
 import interfaces.GeometricShape;
 import interfaces.Panel;
@@ -19,7 +20,10 @@ public class DrawPanel extends JPanel implements MouseListener, MouseMotionListe
 	private GeometricShape newShape;
 	Shape controller;
 
-	public DrawPanel() {
+	DocumentoController documento;
+
+	public DrawPanel(DocumentoController documento) {
+		this.documento = documento;
 		addMouseListener(this);
 		addMouseMotionListener(this);
 	}

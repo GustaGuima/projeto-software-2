@@ -1,12 +1,15 @@
 package main;
+import controllers.DocumentoController;
 import view.Window;
 
 public final class Main {
 	
 	private static Main principal;
+	private DocumentoController documento;
 	
 	private Main() {
-		new Window().setVisible(true);;
+		this.documento = new DocumentoController();
+		new Window(this.documento).setVisible(true);
 	}
 
 	public static Main getPrincipal() {
