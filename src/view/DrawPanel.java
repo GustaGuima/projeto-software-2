@@ -11,6 +11,7 @@ import domain.Circle;
 import interfaces.GeometricShape;
 import interfaces.Panel;
 import interfaces.Shape;
+import interfaces.Lista;
 import domain.Line;
 import domain.Point;
 import domain.Rectangle;
@@ -24,15 +25,21 @@ public class DrawPanel extends JPanel implements MouseListener, MouseMotionListe
 
 	public DrawPanel(DocumentoController documento) {
 		this.documento = documento;
+		newGeometricShape(new Point());
 		addMouseListener(this);
 		addMouseMotionListener(this);
 	}
 
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
+
+		Lista<GeometricShape> it = documento.getIterador();
 		GeometricShape shape = newShape;
-		if (newShape != null) {
+
+		newShape.getController().paint(g);
+		while ((shape = it.proximo()) != null) {
 			shape.getController().paint(g);
+			reload();
 		}
 	}
 
@@ -42,22 +49,37 @@ public class DrawPanel extends JPanel implements MouseListener, MouseMotionListe
 				Point p = (Point) newShape;
 				p.setX(event.getPoint().x);
 				p.setY(event.getPoint().y);
+				documento.inserirFim(newShape);
+
+				newGeometricShape(new Point());
 			} else if (newShape.getClass().equals(Line.class)) {
 				Line l = (Line) newShape;
 				l.setPonto1(new Point(event.getPoint().x, event.getPoint().y));
 				l.setPonto2(new Point(event.getPoint().x, event.getPoint().y));
+				documento.inserirFim(newShape);
+
+				newGeometricShape(new Line());
 			} else if (newShape.getClass().equals(Circle.class)) {
 				Circle c = (Circle) newShape;
 				c.setA(new Point(event.getPoint().x, event.getPoint().y));
 				c.setB(new Point(event.getPoint().x, event.getPoint().y));
+				documento.inserirFim(newShape);
+
+				newGeometricShape(new Circle());
 			} else if (newShape.getClass().equals(Square.class)) {
 				Square s = (Square) newShape;
 				s.setA(new Point(event.getPoint().x, event.getPoint().y));
 				s.setB(new Point(event.getPoint().x, event.getPoint().y));
+				documento.inserirFim(newShape);
+
+				newGeometricShape(new Square());
 			} else if (newShape.getClass().equals(Rectangle.class)) {
 				Rectangle r = (Rectangle) newShape;
 				r.setA(new Point(event.getPoint().x, event.getPoint().y));
 				r.setB(new Point(event.getPoint().x, event.getPoint().y));
+				documento.inserirFim(newShape);
+
+				newGeometricShape(new Rectangle());
 			}
 		}
 	}
@@ -103,18 +125,38 @@ public class DrawPanel extends JPanel implements MouseListener, MouseMotionListe
 				Point p = (Point) newShape;
 				p.setX(event.getPoint().x);
 				p.setY(event.getPoint().y);
+				documento.inserirFim(newShape);
+
+				newGeometricShape(new Point());
+				reload();
 			} else if (newShape.getClass().equals(Line.class)) {
 				Line l = (Line) newShape;
 				l.setPonto2(new Point(event.getPoint().x, event.getPoint().y));
+				documento.inserirFim(newShape);
+
+				newGeometricShape(new Line());
+				reload();
 			} else if (newShape.getClass().equals(Circle.class)) {
 				Circle c = (Circle) newShape;
 				c.setB(new Point(event.getPoint().x, event.getPoint().y));
+				documento.inserirFim(newShape);
+
+				newGeometricShape(new Circle());
+				reload();
 			} else if (newShape.getClass().equals(Square.class)) {
 				Square s = (Square) newShape;
 				s.setB(new Point(event.getPoint().x, event.getPoint().y));
+				documento.inserirFim(newShape);
+
+				newGeometricShape(new Square());
+				reload();
 			} else if (newShape.getClass().equals(Rectangle.class)) {
 				Rectangle r = (Rectangle) newShape;
 				r.setB(new Point(event.getPoint().x, event.getPoint().y));
+				documento.inserirFim(newShape);
+
+				newGeometricShape(new Rectangle());
+				reload();
 			}
 		}
 
